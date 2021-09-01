@@ -1,0 +1,37 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "VanillaJS Weather App",
+  "private": true,
+  "scripts": {
+    "prod": "webpack --env production --progress",
+    "dev": "webpack --env development --progress",
+    "serve": "webpack serve --env development --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianwelerson/weather-app.git"
+  },
+  "author": "Ian Welerson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianwelerson/weather-app/issues"
+  },
+  "homepage": "https://github.com/ianwelerson/weather-app#readme",
+  "devDependencies": {
+    "css-loader": "^6.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.2.1",
+    "sass": "^1.38.2",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.1.0"
+  }
+}
