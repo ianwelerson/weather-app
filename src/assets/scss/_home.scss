@@ -1,0 +1,135 @@
+.home {
+  min-height: 100vh;
+  
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__today-weather {
+    flex: auto;
+    max-width: 30vw;
+    display: flex;
+
+    .weather {
+      width: 100%;
+      padding: 2.625rem 2.875rem;
+      background-color: $blue-500;
+
+      &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .search {
+          &__action {
+            font-weight: $font-medium;
+            font-size: $fs-base;
+            padding: 0.687rem 1.125rem;
+            border: none;
+            background-color: $gray-200;
+            cursor: pointer;
+          }
+        }
+
+        .location-request {
+          &__action {
+            font-weight: $font-medium;
+            font-size: $fs-base;
+            padding: 0.562rem;
+            border: none;
+            background-color: $gray-200;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__data {
+        margin-top: 6.25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .state-image {
+          &__content {
+            //
+          }
+
+          &__img {
+            width: 12.625rem;
+            object-fit: contain;
+          }
+        }
+
+        .state-temperature {
+          margin-top: 5.437rem;
+
+          &__content {
+            color: $gray-200;
+          }
+
+          &__number {
+            font-weight: $font-semi-bold;
+            font-size: $fs-uulg;
+          }
+          
+          &__unit {
+            font-weight: $font-medium;
+            font-size: $fs-xxlg;
+          }
+        }
+
+        .state-name {
+          margin-top: 5.437rem;
+
+          &__content {
+            font-weight: $font-semi-bold;
+            color: $gray-300;
+            font-size: $fs-xlg;
+          }
+        }
+
+        .state-date {
+          margin-top: 5.437rem;
+
+          &__content {
+            display: flex;
+            align-items: center;
+          }
+
+          &__name,
+          &__date {
+            color: $gray-400;
+            font-size: $fs-md;
+          }
+
+          &__name {
+            &::after {
+              content: '•';
+              padding: 0 0.75rem;
+            }
+          }
+        }
+
+        .state-location {
+          margin-top: 2rem;
+
+          &__content {
+            //
+          }
+
+          &__name {
+            font-size: $fs-md;
+            color: $gray-400;
+          }
+        }
+      }
+    }
+  }
+
+  &__forecast {
+    flex: auto;
+    background-color: $blue-700;
+  }
+}
