@@ -6,12 +6,17 @@ module.exports = (env) => {
   const environment = env.production ? 'production' : 'development'
   return {
     mode: environment,
+    devtool: 'source-map',
     entry: path.resolve(__dirname, './src/assets/js/main.js'),
     output: {
       filename: './assets/js/[name].[hash].js',
       path: path.resolve(__dirname, './dist/')
     },
-    devtool: 'source-map',
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src/')
+      }
+    },
     plugins: [
       // HTML
       new HtmlWebpackPlugin({
@@ -35,6 +40,14 @@ module.exports = (env) => {
             'css-loader',
             'sass-loader'
           ]
+        },
+        // Fonts
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: './assets/fonts/[name][ext][query]'
+          }
         }
       ]
     },
