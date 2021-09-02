@@ -1,0 +1,38 @@
+.button {
+  padding: 0.687rem 1.125rem;
+  border: none;
+  cursor: pointer;
+  font-weight: $font-medium;
+  font-size: $fs-base;
+
+  // Inside
+  &__text {
+    //
+  }
+
+  &__icon {
+    display: flex;
+  }
+
+  // Type
+  &--primary {
+    background-color: $gray-500;
+    color: $gray-200;
+    transition: $transition-leave;
+
+    &:hover {
+      background-color: $gray-200;
+      color: $gray-700;
+      transition: $transition-enter;
+    }
+  }
+
+  // Model
+  &--rounded {
+    padding: 0.562rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $radius-full;
+  }
+}

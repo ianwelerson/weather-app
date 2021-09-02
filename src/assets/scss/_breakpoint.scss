@@ -1,0 +1,15 @@
+@mixin screen($size) {
+  $bp: 'only screen';
+
+  @if $size == 'desktop-up' {
+    $bp: $bp + ' and (min-width: 1200px)'
+  }
+
+  @if $size == 'ultrawide-up' {
+    $bp: $bp + ' and (min-width: 1920px)'
+  }
+
+  @media #{unquote($bp)} {
+    @content;
+  }
+}

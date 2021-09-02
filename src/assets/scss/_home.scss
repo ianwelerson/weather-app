@@ -1,21 +1,36 @@
 .home {
-  min-height: 100vh;
+  height: 100vh;
   
   &__content {
-    height: 100%;
     display: flex;
     flex-wrap: wrap;
-  }
+    flex-direction: column;
 
+    @include screen(desktop-up) {
+      flex-direction: row;
+    }
+  }
+  
   &__today-weather {
-    flex: auto;
-    max-width: 30vw;
+    width: 100vw;
     display: flex;
+
+    @include screen(desktop-up) {
+      width: 30vw;
+    }
+
+    @include screen(ultrawide-up) {
+      width: 20vw;
+    }
 
     .weather {
       width: 100%;
-      padding: 2.625rem 2.875rem;
+      padding: 1.125rem 0.687rem 6.562rem 0.687rem;
       background-color: $blue-500;
+      
+      @include screen(desktop-up) {
+        padding: 2.625rem 2.875rem;
+      }
 
       &__actions {
         display: flex;
@@ -23,47 +38,42 @@
         justify-content: space-between;
 
         .search {
-          &__action {
-            font-weight: $font-medium;
-            font-size: $fs-base;
-            padding: 0.687rem 1.125rem;
-            border: none;
-            background-color: $gray-200;
-            cursor: pointer;
-          }
+          //
         }
 
         .location-request {
-          &__action {
-            font-weight: $font-medium;
-            font-size: $fs-base;
-            padding: 0.562rem;
-            border: none;
-            background-color: $gray-200;
-            cursor: pointer;
-          }
+          //
         }
       }
 
       &__data {
-        margin-top: 6.25rem;
+        margin-top: 4.75rem;
         display: flex;
         flex-direction: column;
         align-items: center;
 
+        @include screen(desktop-up) {
+          margin-top: 6.25rem;
+        }
+
         .state-image {
           &__content {
-            //
+            display: flex;
+            justify-content: center;
           }
 
           &__img {
-            width: 12.625rem;
+            width: 60%;
             object-fit: contain;
           }
         }
 
         .state-temperature {
-          margin-top: 5.437rem;
+          margin-top: 2.5rem;
+          
+          @include screen(desktop-up) {
+            margin-top: 5.437rem;
+          }
 
           &__content {
             color: $gray-200;
@@ -81,7 +91,11 @@
         }
 
         .state-name {
-          margin-top: 5.437rem;
+          margin-top: 1.435rem;
+
+          @include screen(desktop-up) {
+            margin-top: 5.437rem;
+          }
 
           &__content {
             font-weight: $font-semi-bold;
@@ -90,38 +104,52 @@
           }
         }
 
-        .state-date {
-          margin-top: 5.437rem;
+        .aditional-info {
+          margin-top: 3rem;
+
+          @include screen(desktop-up) {
+            margin-top: 5.437rem;
+          }
+
 
           &__content {
             display: flex;
             align-items: center;
+            flex-direction: column;
           }
+          
+          .date {
+            display: flex;
+            align-items: center;  
 
-          &__name,
-          &__date {
-            color: $gray-400;
-            font-size: $fs-md;
-          }
+            &__name,
+            &__full {
+              color: $gray-400;
+              font-size: $fs-md;
+            }
 
-          &__name {
-            &::after {
-              content: '•';
-              padding: 0 0.75rem;
+            &__name {
+              &::after {
+                content: '•';
+                padding: 0 0.75rem;
+              }
             }
           }
-        }
 
-        .state-location {
-          margin-top: 2rem;
+          .location {
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
 
-          &__content {
-            //
-          }
+            &__name,
+            &__icon {
+              font-size: $fs-md;
+              color: $gray-400;
+            }
 
-          &__name {
-            font-size: $fs-md;
-            color: $gray-400;
+            &__icon {
+              margin-right: 0.2rem;
+            }
           }
         }
       }
