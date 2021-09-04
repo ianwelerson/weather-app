@@ -12,7 +12,6 @@
   }
   
   &__today-weather {
-    width: 100vw;
     display: flex;
 
     @include screen(desktop-up) {
@@ -32,16 +31,16 @@
         padding: 2.625rem 2.875rem;
       }
 
-      &__actions {
+      .top-actions {
         display: flex;
         align-items: center;
         justify-content: space-between;
 
-        .search {
+        &__search {
           //
         }
 
-        .location-request {
+        &__location-request {
           //
         }
       }
@@ -157,7 +156,240 @@
   }
 
   &__forecast {
-    flex: auto;
+    padding: 1.437rem;
+    flex: 1;
     background-color: $blue-700;
+    
+    @include screen(desktop-up) {
+      padding: 2.625rem 9.625rem 2.625rem 7.812rem;
+    }
+
+    .top-block {
+      .unit-change {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 -0.5rem;
+        
+        @include screen(desktop-up) {
+          justify-content: flex-end;
+        }
+
+        &__item {
+          padding: 0 0.5rem;
+        }
+      }
+    }
+
+    .next-days {
+      margin-top: 2.125rem;
+      
+      @include screen(desktop-up) {
+        margin-top: 4.125rem;
+      }
+
+      &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0 -0.812rem;
+
+        .day-forecast {
+          width: 50%;
+
+          @include screen(desktop-up) {
+            width: auto;
+            flex: 1;
+          }
+          
+          &__inner {
+            padding: 0.812rem;
+            
+            @include screen(desktop-up) {
+              padding: 0 0.812rem;
+            }
+          }
+
+          &__content {
+            padding: 1.125rem;
+            background-color: $blue-500;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .title {
+              &__text {
+                color: $gray-200;
+                font-size: $fs-base;
+                text-align: center;
+              }
+            }
+
+            .icon {
+              margin-top: 0.625rem;
+              display: flex;
+              justify-content: center;
+
+              &__image {
+                height: 3.875rem;
+                object-fit: contain;
+              }
+            }
+
+            .temperature {
+              margin-top: 2rem;
+              display: flex;
+              justify-content: space-between;
+
+              &__max {
+                color: $gray-200;
+              }
+
+              &__min {
+                color: $gray-300;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .today-hightlights {
+      margin-top: 4.5rem;
+
+      &__content {
+        .block-title {
+          &__text {
+            color: $gray-200;
+            font-size: $fs-lg;
+            font-weight: $font-semi-bold;
+          }
+        }
+
+        .boxes {
+          margin: 2rem -1.5rem 0 -1.5rem;
+          display: flex;
+          flex-wrap: wrap;
+          
+          .hightlight-box {
+            width: 100%;
+            display: flex;
+
+            @include screen(desktop-up) {
+              width: 50%;
+            }
+            
+            &__inner {
+              padding: 1rem;
+              flex: 1;
+              display: flex;
+              
+              @include screen(desktop-up) {
+                padding: 1.5rem;
+              }
+            }
+            
+            &__content {
+              background-color: $blue-500;
+              padding: 1.375rem;
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+
+              .title {
+                &__text {
+                  color: $gray-200;
+                  font-size: $fs-base;
+                }
+              }
+
+              .value {
+                margin-top: 0.375rem;
+                color: $gray-200;
+
+                &__number {
+                  font-size: $fs-ulg;
+                  font-weight: $font-semi-bold;
+                }
+
+                &__unit {
+                  font-size: $fs-xlg;
+                }
+              }
+
+              .aditional {
+                margin-top: 1.0625rem;
+
+                &--fill-bar {
+                  width: 100%;
+                }
+              }
+            }
+
+            // Special
+            .wind-direction {
+              display: flex;
+              align-items: center;
+
+              &__arrow {
+                height: 1.875rem;
+                width: 1.875rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $gray-600;
+                color: $gray-200;
+                border-radius: $radius-full;
+                transform: rotate(-145deg);
+              }
+
+              &__text {
+                color: $gray-200;
+                font-size: $fs-sm;
+                margin-left: 0.375rem;
+              }
+            }
+
+            .fill-bar {
+              width: 100%;
+
+              &__top {
+                padding: 0 0.06rem;
+                display: flex;
+                justify-content: space-between;
+                color: $gray-200;
+                font-size: $fs-xs;
+              }
+
+              &__bar {
+                margin-top: 0.125rem;
+                border-radius: $radius-normal;
+                overflow: hidden;
+                position: relative;
+                height: 0.5rem;
+                background-color: $gray-200;
+
+                .bar {
+                  width: 0%;
+                  height: 100%;
+                  background-color: $yellow-500;
+                }
+              }
+
+              &__bottom {
+                padding: 0 0.06rem;
+                margin-top: 0.125rem;
+                display: flex;
+                justify-content: flex-end;
+                color: $gray-200;
+                font-size: $fs-xs;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

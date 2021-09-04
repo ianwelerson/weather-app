@@ -1,9 +1,26 @@
+// State
+@mixin primary-active {
+  background-color: $gray-200;
+  color: $gray-700;
+  transition: $transition-enter;
+}
+
+// State
+@mixin secondary-active {
+  background-color: $gray-200;
+  color: $gray-700;
+  transition: $transition-enter;
+}
+
 .button {
   padding: 0.687rem 1.125rem;
   border: none;
   cursor: pointer;
   font-weight: $font-medium;
   font-size: $fs-base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   // Inside
   &__text {
@@ -12,6 +29,28 @@
 
   &__icon {
     display: flex;
+  }
+
+  // Type
+  &--primary {
+    background-color: $gray-500;
+    color: $gray-200;
+    transition: $transition-leave;
+
+    &:hover {
+      @include primary-active
+    }
+  }
+
+  // Type
+  &--secondary {
+    background-color: $gray-700;
+    color: $gray-200;
+    transition: $transition-leave;
+
+    &:hover {
+      @include secondary-active
+    }
   }
 
   // Type
@@ -34,5 +73,18 @@
     justify-content: center;
     align-items: center;
     border-radius: $radius-full;
+  }
+
+  // State
+  &--selected {
+    &.button {
+      &--primary {
+        @include primary-active
+      }
+
+      &--secondary {
+        @include secondary-active
+      }
+    }
   }
 }
