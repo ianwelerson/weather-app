@@ -5,10 +5,15 @@
   transition: $transition-enter;
 }
 
-// State
 @mixin secondary-active {
   background-color: $gray-200;
   color: $gray-700;
+  transition: $transition-enter;
+}
+
+@mixin blue-active {
+  background-color: $gray-200;
+  color: $blue-200;
   transition: $transition-enter;
 }
 
@@ -21,6 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 
   // Inside
   &__text {
@@ -38,18 +44,26 @@
     transition: $transition-leave;
 
     &:hover {
-      @include primary-active
+      @include primary-active;
     }
   }
 
-  // Type
   &--secondary {
     background-color: $gray-700;
     color: $gray-200;
     transition: $transition-leave;
 
     &:hover {
-      @include secondary-active
+      @include secondary-active;
+    }
+  }
+
+  &--blue {
+    background: $blue-200;
+    color: $gray-200;
+
+    &:hover {
+      @include blue-active;
     }
   }
 

@@ -1,0 +1,32 @@
+.input-group {
+  $border-space: 0.937rem;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    padding: $border-space;
+    border: $border-default $gray-200;
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    left: $border-space;
+    top: 50%;
+    transform: translate(0, -40%);
+    color: $gray-600;
+  }
+
+  &__element {
+    padding-left: calc(#{$border-space} + 1.0593rem);
+    border: none;
+    background: $transparent;
+    font-size: $fs-base;
+    color: $gray-200;
+    outline: none;
+
+    &::placeholder {
+      color: $gray-600;
+    }
+  }
+}

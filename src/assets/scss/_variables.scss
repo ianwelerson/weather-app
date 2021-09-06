@@ -53,3 +53,10 @@ $radius-normal: 5rem;
 // Transition
 $transition-enter: 0.3s all ease-in;
 $transition-leave: 0.3s all ease-out;
+
+// Border
+$border-default: 0.0625rem solid;
+
+// Animations
+$slide-in-left: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+$slide-out-left: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;

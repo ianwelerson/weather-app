@@ -1,5 +1,6 @@
 .home {
   height: 100vh;
+  position: relative;
   
   &__content {
     display: flex;
@@ -390,6 +391,107 @@
           }
         }
       }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 20;
+    transform: translateX(0);
+    animation: $slide-in-left;
+
+    @include screen(desktop-up) {
+      width: 20vw;
+    }
+
+    .side-menu {
+      width: 100%;
+      height: 100%;
+      background-color: $blue-500;
+
+      &__content {
+        padding: 1.093rem;
+      }
+
+      &__close {
+        display: flex;
+        justify-content: flex-end;
+
+        .close-btn {
+          background-color: $transparent;
+          border: none;
+          color: $gray-200;
+          cursor: pointer;
+        }
+      }
+
+      &__search-bar {
+        margin-top: 1.875rem;
+
+        .search-bar {
+          display: flex;
+          align-items: stretch;
+          justify-content: space-between;
+
+          &__input {
+            flex: 1;
+            padding-right: 0.75rem;
+          }
+
+          &__button {
+            //
+          }
+        }
+      }
+
+      &__locations {
+        margin-top: 2.375rem;
+
+        .location-list {
+          list-style: none;
+          padding: 0;
+
+          &__item {
+            margin-bottom: 0.75rem;
+
+            .location-action {
+              width: 100%;
+              padding: 1.437rem 0.75rem;
+              background: $transparent;
+              border: $border-default;
+              border-color: $transparent;
+              font-size: $fs-base;
+              color: $gray-200;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              cursor: pointer;
+              transition: $transition-leave;
+
+              &__arrow {
+                display: flex;
+                justify-content: center;
+                color: $gray-600;
+              }
+
+              &:hover {
+                border-color: $gray-600;
+                transition: $transition-enter;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &--closed {
+      transform: translateX(-1000px);
+      animation: $slide-out-left;
     }
   }
 }
