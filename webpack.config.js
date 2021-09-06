@@ -48,6 +48,14 @@ module.exports = (env) => {
           generator: {
             filename: './assets/fonts/[name][ext][query]'
           }
+        },
+        // Images
+        {
+          test: /\.(png)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: './assets/images/[name][ext][query]'
+          }
         }
       ]
     },
