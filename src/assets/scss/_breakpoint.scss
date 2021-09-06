@@ -1,6 +1,10 @@
 @mixin screen($size) {
   $bp: 'only screen';
 
+  @if $size == 'tablet-up' {
+    $bp: $bp + ' and (min-width: 768px)'
+  }
+
   @if $size == 'desktop-up' {
     $bp: $bp + ' and (min-width: 1200px)'
   }
