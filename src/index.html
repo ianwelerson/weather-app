@@ -9,16 +9,25 @@
 <body>
   <main class="home home--menu-open">
     <div class="home__content">
-      <div class="home__menu home__menu--closed">
+      <div
+        class="home__menu home__menu--closed"
+        id="side-menu"
+      >
         <div class="side-menu">
           <div class="side-menu__content">
             <div class="side-menu__close">
-              <button class="close-btn">
+              <button
+                class="close-btn"
+                id="close-side-menu"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
               </button>
             </div>
             <div class="side-menu__search-bar">
-              <form class="search-bar">
+              <form
+                class="search-bar"
+                id="search-form"
+              >
                 <div class="search-bar__input">
                   <div class="input-group">
                     <div class="input-group__content">
@@ -35,31 +44,20 @@
               </form>
             </div>
             <div class="side-menu__locations">
-              <ul class="location-list">
-                <li class="location-list__item">
-                  <button class="location-action">
-                    <span class="location-action__name">London</span>
-                    <span class="location-action__arrow">
-                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg>
-                    </span>
-                  </button>
-                </li>
-                <li class="location-list__item">
-                  <button class="location-action">
-                    <span class="location-action__name">Barcelona</span>
-                    <span class="location-action__arrow">
-                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg>
-                    </span>
-                  </button>
-                </li>
-                <li class="location-list__item">
-                  <button class="location-action">
-                    <span class="location-action__name">Brazil</span>
-                    <span class="location-action__arrow">
-                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg>
-                    </span>
-                  </button>
-                </li>
+              <ul
+                class="location-list"
+                id="location-list"
+              >
+                <template id="location-template">
+                  <li class="location-list__item">
+                    <button class="location-action">
+                      <span class="location-action__name"></span>
+                      <span class="location-action__arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg>
+                      </span>
+                    </button>
+                  </li>
+                </template>
               </ul>
             </div>
           </div>
@@ -69,7 +67,10 @@
         <div class="content-block">
           <div class="top-actions">
             <div class="top-actions__search">
-              <button class="button button--primary">
+              <button
+                class="button button--primary"
+                id="open-side-menu"
+              >
                 <span class="button__text">
                   Search for places
                 </span>
