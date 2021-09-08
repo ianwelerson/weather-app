@@ -2,4 +2,7 @@
 import '@/assets/scss/main.scss'
 
 // Search Bar
-import '@/assets/js/modules/searchbar'
+import bootstrapSearchBar from '@/assets/js/modules/searchBar'
+
+// Bootstrap
+bootstrapSearchBar()

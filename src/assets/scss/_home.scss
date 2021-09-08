@@ -503,6 +503,7 @@
               justify-content: space-between;
               cursor: pointer;
               transition: $transition-leave;
+              text-decoration: none;
 
               &__arrow {
                 display: flex;

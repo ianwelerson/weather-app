@@ -1,24 +1,24 @@
 .input-group {
-  $border-space: 0.937rem;
+  $input-padding: 0.937rem;
 
   &__content {
     display: flex;
     align-items: center;
-    padding: $border-space;
     border: $border-default $gray-200;
     position: relative;
   }
 
   &__icon {
     position: absolute;
-    left: $border-space;
+    left: $input-padding;
     top: 50%;
     transform: translate(0, -40%);
     color: $gray-600;
   }
 
   &__element {
-    padding-left: calc(#{$border-space} + 1.0593rem);
+    width: 100%;
+    padding: $input-padding $input-padding $input-padding calc(#{$input-padding} + 1.6993rem);
     border: none;
     background: $transparent;
     font-size: $fs-base;
@@ -27,6 +27,11 @@
 
     &::placeholder {
       color: $gray-600;
+    }
+
+    &--disabled {
+      pointer-events: none;
+      cursor: default;
     }
   }
 }

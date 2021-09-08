@@ -2,25 +2,8 @@ import { getPlacesByQuery } from '@/assets/js/api/metaweather'
 
 // Const
 const menuClosedCLass = 'home__menu--closed'
-
-// Menu listeners
-createMenuAction({
-  id: 'open-side-menu',
-  action: 'remove'
-})
-createMenuAction({
-  id: 'close-side-menu',
-  action: 'add'
-})
-
-// Form listener
-document.getElementById('search-form').addEventListener('submit', (event) => {
-  event.preventDefault()
-
-  const location = event.target.querySelector('input').value
-
-  serachLocation(location)
-})
+const locationListId = 'location-list'
+const searchFormId = 'search-form'
 
 /**
  * Create a event listener based on id and action received
@@ -34,9 +17,13 @@ function createMenuAction ({ id, action }) {
 /**
  * Find a place using the Weather API
  */
-function serachLocation (location) {
+function searchLocation (location) {
+  setFormLoading(true)
+
   getPlacesByQuery(location).then((data) => {
     renderLocationList(data)
+  }).finally(() => {
+    setFormLoading(false)
   })
 }
 
@@ -45,14 +32,80 @@ function serachLocation (location) {
  */
 function renderLocationList (locations) {
   const locationTemplate = document.getElementById('location-template')
-  const locationList = document.getElementById('location-list')
+  const locationList = document.getElementById(locationListId)
 
-  locations.map(location => {
-    // const templateClone = locationTemplate.cloneNode(false)
-    // console.log(templateClone)
-    // templateClone.querySelector('location-action__name').innerText = location.locationTemplate
+  clearListItems()
 
-    // locationList.appendChild(document.importNode(locationTemplate, true))
-    return location
+  locations.forEach(location => {
+    const templateClone = locationTemplate.content.cloneNode(true)
+
+    templateClone.querySelector('.location-action__name').innerText = location.title
+    templateClone.querySelector('.location-action').setAttribute('href', `?woeid=${location.woeid}`)
+
+    locationList.appendChild(templateClone)
   })
 }
+
+/**
+ * Clear all items in result list
+ */
+function clearListItems () {
+  const locationList = document.getElementById(locationListId)
+  const listElements = locationList.querySelectorAll('li')
+
+  listElements.forEach(element => {
+    element.remove()
+  })
+}
+
+/**
+ * Set the form state to loading
+ */
+function setFormLoading (state = false) {
+  const formBlock = document.getElementById(searchFormId)
+  const button = formBlock.querySelector('[type=submit]')
+  const input = formBlock.querySelector('input')
+
+  // Classes
+  const buttonClass = 'button--loading'
+  const inputClass = 'input-group__element--disabled'
+
+  if (state) {
+    button.classList.add(buttonClass)
+    input.classList.add(inputClass)
+    input.setAttribute('disabled', true)
+
+    return
+  }
+
+  button.classList.remove(buttonClass)
+  input.classList.remove(inputClass)
+  input.setAttribute('disabled', false)
+}
+
+/**
+ * Create events and setup search functionality
+ */
+function bootstrapSearchBar () {
+  // Menu listeners
+  createMenuAction({
+    id: 'open-side-menu',
+    action: 'remove'
+  })
+
+  createMenuAction({
+    id: 'close-side-menu',
+    action: 'add'
+  })
+
+  // Form listener
+  document.getElementById(searchFormId).addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    const location = event.target.querySelector('input').value
+
+    searchLocation(location)
+  })
+}
+
+export default bootstrapSearchBar

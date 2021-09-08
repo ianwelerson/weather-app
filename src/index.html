@@ -39,7 +39,15 @@
                   </div>
                 </div>
                 <div class="search-bar__button">
-                  <button class="button button--blue" type="submit">Search</button>
+                  <button
+                    class="button button--blue"
+                    type="submit"
+                  >
+                    <span class="button__text">Search</span>
+                    <span class="button__loading">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 0 100 100"><circle fill="#fff" cx="6" cy="50" r="6"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 15 ; 0 -15; 0 15" repeatCount="indefinite" begin=".1"/></circle><circle fill="#fff" cx="30" cy="50" r="6"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 10 ; 0 -10; 0 10" repeatCount="indefinite" begin=".2"/></circle><circle fill="#fff" cx="54" cy="50" r="6"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin=".3"/></circle></svg>
+                    </span>
+                </button>
                 </div>
               </form>
             </div>
@@ -48,14 +56,15 @@
                 class="location-list"
                 id="location-list"
               >
+                <!-- TODO: Add scroll -->
                 <template id="location-template">
                   <li class="location-list__item">
-                    <button class="location-action">
+                    <a href="#" class="location-action">
                       <span class="location-action__name"></span>
                       <span class="location-action__arrow">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg>
                       </span>
-                    </button>
+                    </a>
                   </li>
                 </template>
               </ul>
