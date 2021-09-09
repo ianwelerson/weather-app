@@ -19,7 +19,7 @@ function createListener ({ eventName, elementId, callback }) {
   }
 
   element.addEventListener(eventName, (event) => {
-    callback(event)
+    callback()
   })
 
   return true
