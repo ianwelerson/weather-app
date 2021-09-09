@@ -6,7 +6,9 @@
   "scripts": {
     "prod": "webpack --env production --progress",
     "dev": "webpack --env development --progress",
-    "serve": "webpack serve --env development --progress"
+    "serve": "webpack serve --env development --progress",
+    "test:unit": "jest --passWithNoTests",
+    "test:e2e": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -21,14 +23,18 @@
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.4",
+    "babel-jest": "^27.1.1",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
+    "cypress": "^8.3.1",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.1.1",
     "mini-css-extract-plugin": "^2.2.1",
     "sass": "^1.38.2",
     "sass-loader": "^12.1.0",

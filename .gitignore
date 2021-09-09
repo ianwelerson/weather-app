@@ -3,3 +3,6 @@
 
 # Dist
 /dist/
+
+# Test
+/coverage/
