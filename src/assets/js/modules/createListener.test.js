@@ -1,5 +1,5 @@
 // Render the HTML page
-import 'root/test/jest/helpers/renderHtmlPage'
+import '@test/jest/helpers/renderHtmlPage'
 
 // Module
 import createListener from '@/assets/js/modules/createListener.js'
