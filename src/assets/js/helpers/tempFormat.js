@@ -27,7 +27,7 @@ export default ({ current, required, value }) => {
 
   if (currentFormatted === requiredFormatted || requiredFormatted === 'SAME') {
     return {
-      value: value,
+      value: parseValue(value),
       unit: `°${currentFormatted}`,
       text: `${value} °${currentFormatted}`,
     }
@@ -36,11 +36,11 @@ export default ({ current, required, value }) => {
   let returnValue
 
   if (requiredFormatted === 'F') {
-    returnValue = Number(((Number(value) * 1.8) + 32).toFixed(1))
+    returnValue = parseValue(((Number(value) * 1.8) + 32))
   }
 
   if (requiredFormatted === 'C') {
-    returnValue = Number(((Number(value) - 32) / 1.8).toFixed(1))
+    returnValue = parseValue(((Number(value) - 32) / 1.8))
   }
 
   return {
@@ -48,4 +48,8 @@ export default ({ current, required, value }) => {
     unit: `°${requiredFormatted}`,
     text: `${returnValue} °${requiredFormatted}`
   }
+}
+
+function parseValue (value) {
+  return Math.round(Number(value) * 10) / 10
 }
