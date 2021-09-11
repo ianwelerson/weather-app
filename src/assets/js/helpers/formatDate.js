@@ -1,3 +1,7 @@
+/**
+ * This helper receives a date and return the text version
+ * Date format supported: YYYY-MM-DD and ISO
+ */
 export default (date) => {
   let dateValue
 

@@ -1,3 +1,6 @@
+/**
+ * This helper creates the icon URL based on received ID
+ */
 export default (id) => {
   const allowedIds = ['sn', 'sl', 'h', 't', 'hr', 'lr', 's', 'hc', 'lc', 'c']
 

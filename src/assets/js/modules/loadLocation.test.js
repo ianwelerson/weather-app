@@ -1,12 +1,11 @@
 // Module
-import loadLocation from '@/assets/js/modules/loadLocation.js'
+import loadLocation from '@/assets/js/modules/loadLocation'
 // Helpers
 import { formatDate, iconUrl } from '@/assets/js/helpers/main'
-// API response Mocks
+// API response mocks
 import { woeid as woeidResponse } from '@test/jest/__mocks__/apiResponse'
-// Page render
+// Render page
 import '@test/jest/helpers/renderHtmlPage'
-
 
 // Fetch Mock
 global.fetch = jest.fn(() => Promise.resolve({
@@ -15,60 +14,76 @@ global.fetch = jest.fn(() => Promise.resolve({
 
 // Woeid
 const woeid = 8775
+// Today weather obj
 const todayWeather = woeidResponse.consolidated_weather[0]
 
 describe('loadLocation.js', () => {
   test('should get a location by woeid', async () => {
+    // Getting the location
     const result = await loadLocation(woeid)
+
     // Check if the correct endpoint was called
     expect(global.fetch).toHaveBeenCalledWith(expect.stringMatching(new RegExp(`/location/${woeid}`)))
 
-    // Check if the return is correct
+    // Check if the return value is correct
     expect(result).toEqual(woeidResponse)
   })
 
-  describe('render page content', () => {
+  describe('page content render', () => {
     beforeEach(async () => {
+      // Load location
       await loadLocation(woeid)
     })
 
-    describe('today weather', () => {
-      test('should render icon', () => {
-        const iconBlock = document.getElementById('weather-icon')
-        const iconImage = iconBlock.querySelector('img')
-    
+    describe('main forecast', () => {
+      test('should render correct icon and set the correct class', () => {
+        const iconBlock = document.getElementById('main-forecast-icon')
+        const iconElement = iconBlock.querySelector('img')
+        
+        // Check if the block has cloud class, because the weather is cloudy
         expect(iconBlock.classList.contains('state-image--show-cloud')).toBe(true)
-        expect(iconImage.src).toBe(`https://www.metaweather.com/static/img/weather/${todayWeather.weather_state_abbr}.svg`)
-        expect(iconImage.alt).toBe(todayWeather.weather_state_name)
+        // Check icon attrs
+        expect(iconElement.src).toBe(iconUrl(todayWeather.weather_state_abbr))
+        expect(iconElement.alt).toBe(todayWeather.weather_state_name)
       })
   
-      test('should render today weather', () => {
-        const temperatureElement = document.getElementById('weather-today-temperature')
-        const nameElement = document.getElementById('weather-today-name')
+      test('should render today weather values', () => {
+        const temperatureElement = document.getElementById('main-forecast-temperature')
+        const nameElement = document.getElementById('main-forecast-name')
   
         expect(temperatureElement.innerText).toBe(String(Math.round(todayWeather.the_temp * 10) / 10))
         expect(nameElement.innerText).toBe(todayWeather.weather_state_name)
       })
   
       test('should render location and date', () => {
-        const dateElement = document.getElementById('weather-date')
-        const locationElement = document.getElementById('weather-location')
+        const dateElement = document.getElementById('main-forecast-date')
+        const locationElement = document.getElementById('main-forecast-location')
 
         expect(dateElement.innerText).toBe(formatDate(todayWeather.created))
         expect(locationElement.innerText).toBe(woeidResponse.title)
       })
     })
 
-    describe('next days forecast', () => {
-      test('should render next days forecast', () => {
-        const forecastsBlock = document.querySelectorAll('[data-testid=day-forecast]')
-        const tomorrowData = woeidResponse.consolidated_weather[1]
-        const tomorrowElement = forecastsBlock[0]
+    describe('aditional forecast', () => {
+      describe('next days forecast', () => {
+        test('should render next days forecast', () => {
+          const forecastsBlock = document.querySelectorAll('[data-testid=one-day-forecast]')
 
-        expect(forecastsBlock.length).toBe(5)
-        expect(tomorrowElement.querySelector('.title__text').innerText).toBe(formatDate(tomorrowData.applicable_date))
-        expect(tomorrowElement.querySelector('.icon__image').src).toBe(iconUrl(tomorrowData.weather_state_abbr))
-        expect(tomorrowElement.querySelector('.icon__image').alt).toBe(tomorrowData.weather_state_name)
+          // Get one forecast for test
+          const secondDayData = woeidResponse.consolidated_weather[2]
+          const secondDayElement = forecastsBlock[1]
+          
+          // Check if five day forecast is rendered
+          expect(forecastsBlock.length).toBe(5)
+
+          // Check if second day data is valid
+          expect(secondDayElement.querySelector('.title__text').innerText).toBe(formatDate(secondDayData.applicable_date))
+          expect(secondDayElement.querySelector('.icon__image').src).toBe(iconUrl(secondDayData.weather_state_abbr))
+          expect(secondDayElement.querySelector('.icon__image').alt).toBe(secondDayData.weather_state_name)
+
+          // Check if tomorrow title is valid
+          // expect(secondDayElement.querySelector('.title__text').innerText).toBe(formatDate(secondDayData.applicable_date))
+        })
       })
     })
   })

@@ -1,38 +1,37 @@
-import requestLocation from '@/assets/js/modules/requestLocation.js'
+import requestLocation from '@/assets/js/modules/requestLocation'
+
+// Success location mock
+const sucessLocation = {
+  coords: {
+    latitude: 51.0272883,
+    longitude: -114.3680133,
+  },
+}
+
+// Error mock
+const errorLocation = {
+  code: 1,
+  message: 'GeoLocation Error',
+}
 
 describe('requestLocation.js', () => {
   beforeEach(() => {
     jest.restoreAllMocks()
   })
 
-  test('should return false if browser does\'t support geolocation', () => {
+  test('should throw error if the browser does\'t support geolocation', () => {
     const locationCallback = jest.fn()
-    const locationResponse = requestLocation(locationCallback)
-  
-    expect(locationResponse).toBeFalsy()
+    expect(() => requestLocation(locationCallback)).toThrow()
   })
   
   describe('mocked geolocation', () => {
-    // Location returns
-    const sucessLocation = {
-      coords: {
-        latitude: 51.0272883,
-        longitude: -114.3680133,
-      },
-    }
-  
-    const errorLocation = {
-      code: 1,
-      message: 'GeoLocation Error',
-    }
-      
     beforeAll(() => {
       /**
        * Mock Geolocation API
        * First call: Sucess - return position
        * Second call: Error - return error
        */
-       global.navigator.geolocation = {
+      global.navigator.geolocation = {
         getCurrentPosition: jest.fn()
           .mockImplementationOnce(
             success => Promise.resolve(
@@ -47,7 +46,7 @@ describe('requestLocation.js', () => {
       }
     })
 
-    test('should receive the correct location', () => {
+    test('should trigger callback with the success location', () => {
       const locationCallback = jest.fn()
   
       requestLocation(locationCallback)

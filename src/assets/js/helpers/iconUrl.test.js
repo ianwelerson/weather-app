@@ -1,7 +1,8 @@
+// Helper
 import iconUrl from '@/assets/js/helpers/iconUrl'
 
 describe('iconUrl.js', () => {
-  test('should validate if icon id is correct', () => {
+  test('should validate if icon id is allowed', () => {
     expect(() => iconUrl('ab')).toThrow()
   })
 

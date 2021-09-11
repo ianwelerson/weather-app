@@ -16,44 +16,50 @@ async function loadLocation (woeid) {
 }
 
 function renderPageContent (data) {
+  const todayForecast = data.consolidated_weather[0]
+
   // Today
-  renderIcon(data.consolidated_weather[0])
-  renderTodayWeather(data.consolidated_weather[0])
-  renderDateLocation(data)
+  renderTodayForecastIcon(todayForecast)
+  renderTodayForecastData(todayForecast)
+
+  // Aditional data
+  renderForecastDataLocation(data)
 
   // Next days
-  renderForecastForNextDays(data.consolidated_weather.slice(1))
+  renderNextDaysForecast(data.consolidated_weather.slice(1))
 }
 
-function renderIcon (todayWeather) {
-  const iconBlock = document.getElementById('weather-icon')
+function renderTodayForecastIcon (todayWeather) {
+  const iconBlock = document.getElementById('main-forecast-icon')
   const iconImage = iconBlock.querySelector('img')
 
+  // Setting the clody class
   if (['sn', 'sl', 'h', 't', 'hr', 'lr', 's', 'hc', 'lc'].includes(todayWeather.weather_state_abbr)) {
     iconBlock.classList.add('state-image--show-cloud')
   }
 
-  iconImage.src = `https://www.metaweather.com/static/img/weather/${todayWeather.weather_state_abbr}.svg`
+  iconImage.src = iconUrl(todayWeather.weather_state_abbr)
   iconImage.alt = todayWeather.weather_state_name
 }
 
-function renderTodayWeather (todayWeather) {
-  const temperatureElement = document.getElementById('weather-today-temperature')
-  const nameElement = document.getElementById('weather-today-name')
+function renderTodayForecastData (todayWeather) {
+  const temperatureElement = document.getElementById('main-forecast-temperature')
+  const nameElement = document.getElementById('main-forecast-name')
 
+  // TODO: Create temperature helper
   temperatureElement.innerText = String(Math.round(todayWeather.the_temp * 10) / 10)
   nameElement.innerText = todayWeather.weather_state_name
 }
 
-function renderDateLocation (data) {
-  const dateElement = document.getElementById('weather-date')
-  const locationElement = document.getElementById('weather-location')
+function renderForecastDataLocation (data) {
+  const dateElement = document.getElementById('main-forecast-date')
+  const locationElement = document.getElementById('main-forecast-location')
 
   dateElement.innerText = formatDate(data.consolidated_weather[0].created)
   locationElement.innerText = data.title
 }
 
-function renderForecastForNextDays (nextDays) {
+function renderNextDaysForecast (nextDays) {
   const forecastsBlock = document.getElementById('next-days-forecast-block')
   const forecastTemplate = document.getElementById('next-day-forecast-template')
   
@@ -62,6 +68,7 @@ function renderForecastForNextDays (nextDays) {
 
     // TODO: Add tomorrow as a title
     newForecast.querySelector('.title__text').innerText = formatDate(forecast.applicable_date)
+    // Icon
     newForecast.querySelector('.icon__image').src = iconUrl(forecast.weather_state_abbr)
     newForecast.querySelector('.icon__image').alt = forecast.weather_state_name
 

@@ -1,3 +1,4 @@
+// Helper
 import formatDate from '@/assets/js/helpers/formatDate'
 
 describe('formatDate.js', () => {
@@ -12,5 +13,4 @@ describe('formatDate.js', () => {
   test('should return formatted date when date is in YYYY-MM-DD format', () => {
     expect(formatDate('2021-09-10')).toBe('Fri, Sep 10')
   })
-
 })

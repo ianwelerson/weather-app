@@ -1,8 +1,8 @@
+// Module
+import createListener from '@/assets/js/modules/createListener'
+
 // Render the HTML page
 import '@test/jest/helpers/renderHtmlPage'
-
-// Module
-import createListener from '@/assets/js/modules/createListener.js'
 
 // Default event
 const eventDefault = {
@@ -12,32 +12,34 @@ const eventDefault = {
 
 describe('createListener.js', () => {
   describe('required values', () => {
+    test('should throw an error if some value is missing', () => {
+      expect(() => createListener({
+        ...eventDefault,
+      })).toThrowError()
+    })
+
+    test('should throw an error if element is not found', () => {
+      expect(() => createListener({
+        ...eventDefault,
+        elementId: 'mmms',
+        callback: jest.fn()
+      })).toThrowError()
+    })
+
     test('should return true if all values are received', () => {
-      const fakeCallback = jest.fn()
-    
       const createResult = createListener({
         ...eventDefault,
-        callback: fakeCallback
+        callback: jest.fn()
       })
     
       expect(createResult).toBeTruthy()
     })
-  
-    test('should return false if some value is missing', () => {
-      const fakeCallback = jest.fn()
-    
-      const createResult = createListener({
-        ...eventDefault,
-      })
-    
-      expect(createResult).toBeFalsy()
-    })
   })
   
-  test('should trigger the callback when event occurs', () => {
+  test('should trigger the callback', () => {
     const fakeCallback = jest.fn()
   
-    const createResult = createListener({
+    createListener({
       ...eventDefault,
       callback: fakeCallback
     })
