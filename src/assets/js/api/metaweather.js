@@ -1,5 +1,6 @@
-const cors = 'https://cors-anywhere.herokuapp.com'
-const api = `${cors}/https://www.metaweather.com/api`
+const cors = 'https://cors-anywhere.herokuapp.com' // Cors Anywhere
+const api = 'https://www.metaweather.com/api' // Meta Weather API
+const fullApi = `${cors}/${api}` // Full API route
 
 /**
  * Get a list of places by a term
@@ -7,7 +8,7 @@ const api = `${cors}/https://www.metaweather.com/api`
  * @returns Promise
  */
 function getPlacesByQuery (query) {
-  return fetch(`${api}/location/search/?query=${query}`)
+  return fetch(`${fullApi}/location/search/?query=${query}`)
     .then(response => response.json())
     .then(response => {
       return response
@@ -20,7 +21,7 @@ function getPlacesByQuery (query) {
  * @returns Promise
  */
 function getPlaceByWoeid (woeid) {
-  return fetch(`${api}/location/${woeid}`)
+  return fetch(`${fullApi}/location/${woeid}`)
     .then(response => response.json())
     .then(response => {
       return response
@@ -34,7 +35,7 @@ function getPlaceByWoeid (woeid) {
  * @returns Promise
  */
 function getPlaceByCoord ({ lat, long}) {
-  return fetch(`${api}/location/search/?lattlong=${lat},${long}`)
+  return fetch(`${fullApi}/location/search/?lattlong=${lat},${long}`)
     .then(response => response.json())
     .then(response => {
       return response

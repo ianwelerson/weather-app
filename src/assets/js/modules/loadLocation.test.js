@@ -22,6 +22,7 @@ describe('loadLocation.js', () => {
     // Getting the location
     const result = await loadLocation(woeid)
 
+    // TODO: Refact to test only the loadLocation
     // Check if the correct endpoint was called
     expect(global.fetch).toHaveBeenCalledWith(expect.stringMatching(new RegExp(`/location/${woeid}`)))
 

@@ -1,3 +1,4 @@
+// coord: 51.0272883, -114.3680133
 const coord = [
   {
     distance: 20828,
@@ -15,6 +16,7 @@ const coord = [
     },
 ]
 
+// woeid: 8775
 const woeid = {
   title: 'Calgary',
   location_type: 'City',
@@ -175,6 +177,7 @@ const woeid = {
   ]
 }
 
+// query: cal
 const query = [
   {
     title: 'Calgary',
