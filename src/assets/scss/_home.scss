@@ -180,12 +180,11 @@
     padding: 1.437rem;
     flex: 1;
     background-color: $blue-700;
-    
-    @include screen(desktop-up) {
-      padding: 2.625rem 9.625rem 2.625rem 7.812rem;
-    }
+    display: flex;
+    justify-content: center;
 
     @include screen(ultrawide-up) {
+      padding: 2.625rem 9.625rem 2.625rem 7.812rem;
       display: flex;
       justify-content: center;
     }
@@ -373,7 +372,6 @@
                   background-color: $gray-600;
                   color: $gray-200;
                   border-radius: $radius-full;
-                  transform: rotate(-145deg);
                 }
   
                 &__text {

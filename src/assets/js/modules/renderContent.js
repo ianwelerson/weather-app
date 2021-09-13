@@ -12,6 +12,9 @@ function renderContent (data) {
 
   // Next days
   renderNextDaysForecast(data.consolidated_weather.slice(1))
+
+  // Hight lights
+  renderTodayHightlights(todayForecast)
 }
 
 function renderTodayForecastIcon (todayWeather) {
@@ -58,14 +61,59 @@ function renderNextDaysForecast (nextDays) {
   nextDays.forEach(forecast => {
     const newForecast = forecastTemplate.content.cloneNode(true)
 
-    // TODO: Add tomorrow as a title
-    newForecast.querySelector('.title__text').innerText = formatDate(forecast.applicable_date)
+    newForecast.querySelector('.title__text').innerText = cardTitle(forecast.applicable_date)
+    newForecast.querySelector('.temperature__max').innerText = tempFormat({
+        value: forecast.max_temp,
+        current: 'c',
+        required: 'same'
+      }).text
+    newForecast.querySelector('.temperature__min').innerText = tempFormat({
+        value: forecast.min_temp,
+        current: 'c',
+        required: 'same'
+      }).text
     // Icon
     newForecast.querySelector('.icon__image').src = iconUrl(forecast.weather_state_abbr)
     newForecast.querySelector('.icon__image').alt = forecast.weather_state_name
 
     forecastsBlock.appendChild(newForecast)
   })
+}
+
+function renderTodayHightlights (today) {
+  // Wind
+  const windSpeed = document.getElementById('hightlights-wind-speed')
+  windSpeed.innerText = today.wind_speed.toFixed(2)
+  const windDirectArrow = document.getElementById('hightlights-wind-direction-arrow')
+  windDirectArrow.style.transform = `rotate(${today.wind_direction}deg)`
+  const windDirectCompass = document.getElementById('hightlights-wind-direction-compass')
+  windDirectCompass.innerText = today.wind_direction_compass
+
+  // Humidity
+  const humidityValue = document.getElementById('hightlight-humidity-number')
+  const humidityPercent = document.getElementById('hightlight-humidity-percent')
+  humidityValue.innerText = today.humidity
+  humidityPercent.style.width = `${today.humidity}%`
+
+  // Visiblity
+  const visibilityValue = document.getElementById('hightlight-visibility-number')
+  visibilityValue.innerText = today.visibility.toFixed(2)
+
+  // Air Pressure
+  const airPressureValue = document.getElementById('hightlight-air-pressure-number')
+  airPressureValue.innerText = today.air_pressure
+}
+
+// Local helpers
+function cardTitle (date) {
+  const tomorrow = new Date()
+  tomorrow.setDate(tomorrow.getDate() + 1)
+
+  if (date === tomorrow.toISOString().split('T')[0]) {
+    return 'Tomorrow'
+  }
+
+  return formatDate(date)
 }
 
 export default renderContent

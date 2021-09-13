@@ -29,7 +29,7 @@ export default ({ current, required, value }) => {
     return {
       value: parseValue(value),
       unit: `°${currentFormatted}`,
-      text: `${value} °${currentFormatted}`,
+      text: `${parseValue(value)} °${currentFormatted}`,
     }
   }
   

@@ -1,3 +1,9 @@
+// Today
+const today = new Date()
+// Tomorrow
+const tomorrow = new Date()
+tomorrow.setDate(today.getDate() + 1)
+
 // coord: 51.0272883, -114.3680133
 const coord = [
   {
@@ -50,8 +56,8 @@ const woeid = {
       weather_state_name: 'Heavy Rain',
       weather_state_abbr: 'hr',
       wind_direction_compass: 'ESE',
-      created: '2021-09-10T11:06:16.795601Z',
-      applicable_date: '2021-09-11',
+      created: tomorrow,
+      applicable_date: tomorrow.toISOString().split('T')[0],
       min_temp: 9.629999999999999,
       max_temp: 14.955,
       the_temp: 12.425,

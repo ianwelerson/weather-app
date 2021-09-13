@@ -71,7 +71,39 @@ describe('renderContent.js', () => {
         expect(secondDayElement.querySelector('.icon__image').alt).toBe(secondDayData.weather_state_name)
 
         // Check if tomorrow title is valid
-        // expect(secondDayElement.querySelector('.title__text').innerText).toBe(formatDate(secondDayData.applicable_date))
+        expect(forecastsBlock[0].querySelector('.title__text').innerText).toBe('Tomorrow')
+      })
+    })
+
+    describe('hight lights', () => {
+      test('should render wind status for the current day', () => {
+        const windSpeed = document.getElementById('hightlights-wind-speed')
+        const windDirectionArrow = document.getElementById('hightlights-wind-direction-arrow')
+        const windDirectionText = document.getElementById('hightlights-wind-direction-compass')
+
+        expect(windSpeed.innerText).toBe(todayWeather.wind_speed.toFixed(2))
+        expect(windDirectionText.innerText).toBe(todayWeather.wind_direction_compass)
+        expect(windDirectionArrow.style.transform).toBe(`rotate(${todayWeather.wind_direction}deg)`)
+      })
+
+      test('should render humidity for the current day', () => {
+        const humidityValue = document.getElementById('hightlight-humidity-number')
+        const humidityPercent = document.getElementById('hightlight-humidity-percent')
+
+        expect(humidityValue.innerText).toBe(todayWeather.humidity)
+        expect(humidityPercent.style.width).toBe(`${todayWeather.humidity}%`)
+      })
+
+      test('should render visibility for the current day', () => {
+        const visibilityValue = document.getElementById('hightlight-visibility-number')
+
+        expect(visibilityValue.innerText).toBe(todayWeather.visibility.toFixed(2))
+      })
+
+      test('should render air pressure for the current day', () => {
+        const airPressureValue = document.getElementById('hightlight-air-pressure-number')
+
+        expect(airPressureValue.innerText).toBe(todayWeather.air_pressure)
       })
     })
   })
