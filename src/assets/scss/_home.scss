@@ -8,6 +8,7 @@
     flex-direction: column;
 
     @include screen(desktop-up) {
+      height: 100%;
       flex-direction: row;
     }
   }
@@ -20,7 +21,7 @@
     }
 
     @include screen(ultrawide-up) {
-      width: 20vw;
+      width: 25vw;
     }
 
     .content-block {
@@ -191,7 +192,7 @@
 
     .content-block {
       @include screen(ultrawide-up) {
-        max-width: 40vw;
+        max-width: 45vw;
       }
 
       .top-block {
@@ -224,6 +225,10 @@
           justify-content: space-between;
           flex-wrap: wrap;
           margin: 0 -0.812rem;
+          
+          @include screen(desktop-up) {
+            align-items: stretch;
+          }
   
           .day-forecast {
             width: 50%;
@@ -237,6 +242,8 @@
               padding: 0.812rem;
               
               @include screen(desktop-up) {
+                height: 100%;
+                display: flex;
                 padding: 0 0.812rem;
               }
             }
@@ -247,6 +254,10 @@
               display: flex;
               justify-content: center;
               flex-direction: column;
+
+              @include screen(desktop-up) {
+                width: 100%;
+              }
   
               .title {
                 &__text {
