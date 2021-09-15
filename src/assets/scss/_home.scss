@@ -446,7 +446,11 @@
     animation: $slide-in-left;
 
     @include screen(desktop-up) {
-      width: 20vw;
+      width: 30vw;
+    }
+
+    @include screen(ultrawide-up) {
+      width: 25vw;
     }
 
     .side-menu {
