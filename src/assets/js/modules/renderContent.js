@@ -4,6 +4,9 @@ import { formatDate, iconUrl, tempFormat } from '@/assets/js/helpers/main'
 function renderContent (data) {
   const todayForecast = data.consolidated_weather[0]
 
+  // Clear
+  clearOldForecast()
+
   // Today
   renderTodayForecastIcon(todayForecast)
   renderTodayForecastData(todayForecast)
@@ -115,6 +118,15 @@ function cardTitle (date) {
   }
 
   return formatDate(date)
+}
+
+function clearOldForecast () {
+  // Next days
+  const nextDaysBlock = document.getElementById('next-days-forecast-block')
+
+  nextDaysBlock.querySelectorAll('.day-forecast').forEach(element => {
+    element.remove()
+  })
 }
 
 export default renderContent

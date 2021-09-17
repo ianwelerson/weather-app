@@ -107,4 +107,15 @@ describe('renderContent.js', () => {
       })
     })
   })
+
+  describe('change location', () => {
+    test('should clear old next days cards', () => {
+      // Call render again
+      renderContent(woeidResponse)
+
+      const forecastsBlock = document.querySelectorAll('[data-testid=one-day-forecast]')
+
+      expect(forecastsBlock.length).toBe(5)
+    })
+  })
 })

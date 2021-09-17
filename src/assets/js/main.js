@@ -16,6 +16,10 @@ function showSideMenu(data) {
 }
 
 loadLocation(455825)
+// Fake new location set
+setTimeout(() => {
+  loadLocation(8775)
+}, 4000);
 
 createListener({
   eventName: 'click',
