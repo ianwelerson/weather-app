@@ -1,4 +1,4 @@
-import requestLocation from '@/assets/js/modules/requestLocation'
+import requestUserLocation from '@/assets/js/modules/requestUserLocation'
 
 // Success location mock
 const sucessLocation = {
@@ -14,14 +14,14 @@ const errorLocation = {
   message: 'GeoLocation Error',
 }
 
-describe('requestLocation.js', () => {
+describe('requestUserLocation.js', () => {
   beforeEach(() => {
     jest.restoreAllMocks()
   })
 
   test('should throw error if the browser does\'t support geolocation', () => {
     const locationCallback = jest.fn()
-    expect(() => requestLocation(locationCallback)).toThrow()
+    expect(() => requestUserLocation(locationCallback)).toThrow()
   })
   
   describe('mocked geolocation', () => {
@@ -49,7 +49,7 @@ describe('requestLocation.js', () => {
     test('should trigger callback with the success location', () => {
       const locationCallback = jest.fn()
   
-      requestLocation(locationCallback)
+      requestUserLocation(locationCallback)
     
       expect(locationCallback).toHaveBeenCalledWith(sucessLocation)
     })
@@ -57,7 +57,7 @@ describe('requestLocation.js', () => {
     test('should receive an error', () => {
       const locationCallback = jest.fn()
   
-      requestLocation(locationCallback)
+      requestUserLocation(locationCallback)
     
       expect(locationCallback).toHaveBeenCalledWith(errorLocation)
     })

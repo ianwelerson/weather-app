@@ -2,13 +2,13 @@ import loadLocation from '@/assets/js/modules/loadLocation'
 
 const locationListId = 'location-list'
 
-const sideSearch = {
+const sideMenu = {
   open() {
-    const element = document.getElementById('side-search')
+    const element = document.getElementById('side-menu')
     element.classList.remove('home__menu--closed')
   },
   close() {
-    const element = document.getElementById('side-search')
+    const element = document.getElementById('side-menu')
     element.classList.add('home__menu--closed')
   },
   listLocations(locations) {
@@ -16,7 +16,7 @@ const sideSearch = {
     const locationList = document.getElementById(locationListId)
 
     // Clear list
-    sideSearch.clearLocationList()
+    sideMenu.clearLocationList()
 
     locations.forEach(location => {
       const templateClone = locationTemplate.content.cloneNode(true)
@@ -35,8 +35,7 @@ const sideSearch = {
     const locationItems = locationList.querySelectorAll('li')
 
     locationItems.forEach(element => {
-      // TODO: Finish event remove
-      // removeLocationListener(element.id)
+      removeLocationListener(element)
       element.remove()
     })
   }
@@ -51,9 +50,14 @@ function createLocationListener (elementId) {
   document.getElementById(elementId).addEventListener('click', loadLocationEvent)
 }
 
-function removeLocationListener (elementId) {
-  console.log(elementId)
-  document.getElementById(elementId).removeEventListener('click', loadLocationEvent)
+function removeLocationListener (element) {
+  const actionElement = element.querySelector('a')
+
+  if (!actionElement) {
+    return
+  }
+
+  document.getElementById(actionElement.id).removeEventListener('click', loadLocationEvent)
 }
 
-export default sideSearch
+export default sideMenu

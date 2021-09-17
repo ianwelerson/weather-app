@@ -1,7 +1,7 @@
 // Render page
 import '@test/jest/helpers/renderHtmlPage'
 // Module
-import sideSearch from '@/assets/js/modules/sideSearch'
+import sideMenu from '@/assets/js/modules/sideMenu'
 // Mock
 import { query } from '@test/jest/__mocks__/apiResponse'
 
@@ -11,26 +11,26 @@ jest.mock('@/assets/js/modules/loadLocation', () => {
   return jest.fn()
 })
 
-describe('sideSearch.js', () => {
+describe('sideMenu.js', () => {
   test('should open side search', () => {
-    sideSearch.open()
+    sideMenu.open()
 
-    const element = document.getElementById('side-search')
+    const element = document.getElementById('side-menu')
 
     expect(element.classList.contains('home__menu--closed')).toBeFalsy()
   })
 
   test('should close side search', () => {
-    sideSearch.close()
+    sideMenu.close()
 
-    const element = document.getElementById('side-search')
+    const element = document.getElementById('side-menu')
 
     expect(element.classList.contains('home__menu--closed')).toBeTruthy()
   })
 
   test('should render a list of locations and clear items before render again', () => {
-    sideSearch.open()
-    sideSearch.listLocations(query)
+    sideMenu.open()
+    sideMenu.listLocations(query)
 
     const wrapper = document.getElementById('location-list')
 
@@ -38,12 +38,12 @@ describe('sideSearch.js', () => {
     expect(wrapper.querySelectorAll('li').length).toBe(2)
 
     // Second render
-    sideSearch.listLocations(query)
+    sideMenu.listLocations(query)
     expect(wrapper.querySelectorAll('li').length).toBe(2)
   })
 
   test('should call the load location', () => {
-    sideSearch.listLocations(query)
+    sideMenu.listLocations(query)
 
     const locationButton = document.getElementById(`woeid-${query[0].woeid}`)
 

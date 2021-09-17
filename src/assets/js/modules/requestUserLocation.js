@@ -4,7 +4,7 @@
  * @param {function} callback function that will be called after get location
  * @returns if the browser supports geolocation
  */
-function requestLocation (callback) {
+function requestUserLocation (callback) {
   // Check if navigator has geolocation api
   if (!navigator.geolocation) {
     throw new Error('Browser does\'t support geolocation')
@@ -15,4 +15,4 @@ function requestLocation (callback) {
   return true
 }
 
-export default requestLocation
+export default requestUserLocation
