@@ -44,6 +44,7 @@ const sideMenu = {
 function loadLocationEvent (event) {
   event.preventDefault()
   loadLocation(event.target.getAttribute('data-woeid'))
+  sideMenu.close()
 }
 
 function createLocationListener (elementId) {

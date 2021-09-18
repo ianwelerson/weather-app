@@ -43,6 +43,7 @@ describe('sideMenu.js', () => {
   })
 
   test('should call the load location', () => {
+    sideMenu.open()
     sideMenu.listLocations(query)
 
     const locationButton = document.getElementById(`woeid-${query[0].woeid}`)
@@ -50,5 +51,18 @@ describe('sideMenu.js', () => {
     locationButton.click()
 
     expect(loadLocation).toHaveBeenCalledTimes(1)
+  })
+
+  test('should close the menu when a location is chosen', () => {
+    sideMenu.open()
+    sideMenu.listLocations(query)
+
+    const locationButton = document.getElementById(`woeid-${query[0].woeid}`)
+    const menuElement = document.getElementById('side-menu')
+
+    locationButton.click()
+
+    expect(loadLocation).toHaveBeenCalledTimes(1)
+    expect(menuElement.classList.contains('home__menu--closed')).toBeTruthy()
   })
 })

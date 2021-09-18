@@ -1,30 +1,18 @@
-// Load CSS
+// ------- Load CSS ------- 
 import '@/assets/scss/main.scss'
 
-// Modules
+// ------- Modules ------- 
 import createListener from '@/assets/js/modules/createListener'
 import requestUserLocation from '@/assets/js/modules/requestUserLocation'
 import loadLocation from '@/assets/js/modules/loadLocation'
 import searchLocation from '@/assets/js/modules/searchLocation'
 import sideMenu from '@/assets/js/modules/sideMenu'
-import { query } from '../../../test/jest/__mocks__/apiResponse'
 
-// // Fake use for location result
-// function showSideMenu(data) {
-//   console.log(data)
-//   console.log(typeof data)
-//   sideMenu.open()
-//   // Fake list
-//   sideMenu.listLocations(query)
-// }
+// ------- Default location ------- 
+loadLocation(8775)
 
-// loadLocation(455825)
-// // Fake new location set
-// setTimeout(() => {
-//   loadLocation(8775)
-// }, 4000);
-
-// Listeners
+// ------- Create all listeners ------- 
+// Request location
 createListener({
   eventName: 'click',
   elementId: 'location-button',
@@ -36,7 +24,7 @@ createListener({
     })
   }
 })
-
+// Open menu
 createListener({
   eventName: 'click',
   elementId: 'open-side-menu',
@@ -44,7 +32,7 @@ createListener({
     sideMenu.open()
   }
 })
-
+// Close menu
 createListener({
   eventName: 'click',
   elementId: 'close-side-menu',
@@ -52,12 +40,18 @@ createListener({
     sideMenu.close()
   }
 })
-
+// Form submit
 createListener({
   eventName: 'submit',
   elementId: 'search-form',
-  callback: (event) => {
+  callback: async (event) => {
     event.preventDefault()
-    showSideMenu(event.target.querySelector('input').value)
+    const query = event.target.querySelector('input')?.value
+    if (!query) {
+      return
+    }
+
+    const result = await searchLocation(query)
+    sideMenu.listLocations(result)
   }
 })
