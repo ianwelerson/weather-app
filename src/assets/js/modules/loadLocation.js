@@ -9,6 +9,9 @@ async function loadLocation (woeid) {
     
     const response = await getPlaceByWoeid(woeid)
 
+    // Save woeid in storage
+    window.localStorage.setItem('woeid', woeid)
+
     renderContent(response)
 
     return response
@@ -17,4 +20,16 @@ async function loadLocation (woeid) {
   }
 }
 
-export default loadLocation
+// TODO: Add to test
+function reloadLocation () {
+  const woeid = window.localStorage.getItem('woeid')
+
+  if (woeid) {
+    loadLocation(woeid)
+  }
+}
+
+export {
+  loadLocation,
+  reloadLocation
+}

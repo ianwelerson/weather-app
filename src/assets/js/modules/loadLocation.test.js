@@ -1,5 +1,5 @@
 // Module
-import loadLocation from '@/assets/js/modules/loadLocation'
+import { loadLocation, reloadLocation } from '@/assets/js/modules/loadLocation'
 // API response mocks
 import { woeid as woeidResponse } from '@test/jest/__mocks__/apiResponse'
 
@@ -34,5 +34,11 @@ describe('loadLocation.js', () => {
     expect(getPlaceByWoeid).toHaveBeenCalledWith(woeid)
     expect(renderContent).toHaveBeenCalledWith(woeidResponse)
     expect(response).toMatchObject(woeidResponse)
+  })
+
+  test('should save woeid in localStorage', async () => {
+    const response = await loadLocation(woeid)
+
+    expect(window.localStorage.getItem('woeid')).toBe(String(woeid))
   })
 })

@@ -6,9 +6,11 @@ import sideMenu from '@/assets/js/modules/sideMenu'
 import { query } from '@test/jest/__mocks__/apiResponse'
 
 // Mocks
-import loadLocation from '@/assets/js/modules/loadLocation'
+import { loadLocation } from '@/assets/js/modules/loadLocation'
 jest.mock('@/assets/js/modules/loadLocation', () => {
-  return jest.fn()
+  return {
+    loadLocation: jest.fn()
+  }
 })
 
 describe('sideMenu.js', () => {

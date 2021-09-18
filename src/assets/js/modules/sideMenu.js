@@ -1,4 +1,4 @@
-import loadLocation from '@/assets/js/modules/loadLocation'
+import { loadLocation } from '@/assets/js/modules/loadLocation'
 
 const locationListId = 'location-list'
 

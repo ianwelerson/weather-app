@@ -1,6 +1,5 @@
 import { formatDate, iconUrl, tempFormat } from '@/assets/js/helpers/main'
 
-// TODO: Clear content before render the new content
 function renderContent (data) {
   const todayForecast = data.consolidated_weather[0]
 

@@ -4,9 +4,12 @@ import '@/assets/scss/main.scss'
 // ------- Modules ------- 
 import createListener from '@/assets/js/modules/createListener'
 import requestUserLocation from '@/assets/js/modules/requestUserLocation'
-import loadLocation from '@/assets/js/modules/loadLocation'
+import { loadLocation } from '@/assets/js/modules/loadLocation'
 import searchLocation from '@/assets/js/modules/searchLocation'
 import sideMenu from '@/assets/js/modules/sideMenu'
+
+// TODO: Change unit
+// TODO: URL Woeid
 
 // ------- Default location ------- 
 loadLocation(8775)
