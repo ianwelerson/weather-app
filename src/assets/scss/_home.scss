@@ -459,7 +459,10 @@
       background-color: $blue-500;
 
       &__content {
+        height: 100%;
         padding: 1.093rem;
+        display: flex;
+        flex-direction: column;
       }
 
       &__close {
@@ -494,11 +497,29 @@
       }
 
       &__locations {
+        height: 100%;
         margin-top: 2.375rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        &::-webkit-scrollbar {
+          width: 0.625rem;
+        }
+          
+        &::-webkit-scrollbar-track {
+          background-color: $gray-700;
+          border-radius: $radius-normal;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+          background-color: $gray-200;
+          border-radius: $radius-normal;
+        }
 
         .location-list {
-          list-style: none;
           padding: 0;
+          margin-right: 2rem;
+          list-style: none;
 
           &__item {
             margin-bottom: 0.75rem;
