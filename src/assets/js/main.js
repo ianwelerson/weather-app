@@ -4,7 +4,8 @@ import '@/assets/scss/main.scss'
 // ------- Modules ------- 
 import createListener from '@/assets/js/modules/createListener'
 import requestUserLocation from '@/assets/js/modules/requestUserLocation'
-import loadLocation from '@/assets/js/modules/initialLocation'
+import initialLocation from '@/assets/js/modules/initialLocation'
+import changeUnit from '@/assets/js/modules/changeUnit'
 import searchLocation from '@/assets/js/modules/searchLocation'
 import sideMenu from '@/assets/js/modules/sideMenu'
 
@@ -12,7 +13,7 @@ import sideMenu from '@/assets/js/modules/sideMenu'
 // TODO: Invalid location
 
 // ------- Location load ------- 
-loadLocation()
+initialLocation()
 
 // ------- Create all listeners ------- 
 // Request location
@@ -41,6 +42,22 @@ createListener({
   elementId: 'close-side-menu',
   callback: () => {
     sideMenu.close()
+  }
+})
+// Change unit to C
+createListener({
+  eventName: 'click',
+  elementId: 'change-unit-celsius',
+  callback: () => {
+    changeUnit('c')
+  }
+})
+// Change unit to F
+createListener({
+  eventName: 'click',
+  elementId: 'change-unit-fahrenheit',
+  callback: () => {
+    changeUnit('f')
   }
 })
 // Form submit

@@ -1,5 +1,5 @@
 // Modules
-import { reloadLocation } from '@/assets/js/modules/loadLocation'
+import initialLocation from '@/assets/js/modules/initialLocation'
 
 function changeUnit (unit) {
   const treatedUnit = unit.toLowerCase()
@@ -10,7 +10,7 @@ function changeUnit (unit) {
 
   changeButtonClass(treatedUnit)
   window.localStorage.setItem('unit', treatedUnit)
-  // TODO: Call load location
+  initialLocation()
 }
 
 function changeButtonClass (unit) {

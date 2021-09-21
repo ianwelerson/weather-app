@@ -20,16 +20,6 @@ async function loadLocation (woeid) {
   }
 }
 
-// TODO: Add to test
-function reloadLocation () {
-  const woeid = window.localStorage.getItem('woeid')
-
-  if (woeid) {
-    loadLocation(woeid)
-  }
-}
-
 export {
-  loadLocation,
-  reloadLocation
+  loadLocation
 }

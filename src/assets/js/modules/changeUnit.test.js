@@ -3,6 +3,12 @@ import '@test/jest/helpers/renderHtmlPage'
 // Module
 import changeUnit from '@/assets/js/modules/changeUnit'
 
+// Mock
+import initialLocation from '@/assets/js/modules/initialLocation'
+jest.mock('@/assets/js/modules/initialLocation', () => {
+  return jest.fn()
+})
+
 describe('changeUnit.js', () => {
   test('should be Celsius as default', () => {
     const celsiusBtn = document.getElementById('change-unit-celsius')
@@ -25,5 +31,11 @@ describe('changeUnit.js', () => {
     changeUnit(value)
 
     expect(window.localStorage.getItem('unit')).toBe(value)
+  })
+
+  test('should call initialLocation when a location is changed', () => {
+    changeUnit('f')
+
+    expect(initialLocation).toBeCalledTimes(1)
   })
 })

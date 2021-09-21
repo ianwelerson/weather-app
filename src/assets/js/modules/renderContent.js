@@ -41,7 +41,7 @@ function renderTodayForecastData (todayWeather) {
   const tempFormatted = tempFormat({
     value: todayWeather.the_temp,
     current: 'c',
-    required: 'same'
+    required: getUnit()
   })
 
   temperatureElement.innerText = String(tempFormatted.value)
@@ -68,12 +68,12 @@ function renderNextDaysForecast (nextDays) {
     newForecast.querySelector('.temperature__max').innerText = tempFormat({
         value: forecast.max_temp,
         current: 'c',
-        required: 'same'
+        required: getUnit()
       }).text
     newForecast.querySelector('.temperature__min').innerText = tempFormat({
         value: forecast.min_temp,
         current: 'c',
-        required: 'same'
+        required: getUnit()
       }).text
     // Icon
     newForecast.querySelector('.icon__image').src = iconUrl(forecast.weather_state_abbr)
@@ -126,6 +126,11 @@ function clearOldForecast () {
   nextDaysBlock.querySelectorAll('.day-forecast').forEach(element => {
     element.remove()
   })
+}
+
+function getUnit () {
+  // Get the unit from the storage
+  return window.localStorage.getItem('unit') || 'c'
 }
 
 export default renderContent
