@@ -9,8 +9,9 @@ import changeUnit from '@/assets/js/modules/changeUnit'
 import searchLocation from '@/assets/js/modules/searchLocation'
 import sideMenu from '@/assets/js/modules/sideMenu'
 
-// TODO: Change unit
-// TODO: Invalid location
+// TODO: Skeleton loading
+// TODO: Create message helper (show a message on top of the page)
+// TODO: Create invalid location handle using the message helper
 
 // ------- Location load ------- 
 initialLocation()
@@ -60,7 +61,7 @@ createListener({
     changeUnit('f')
   }
 })
-// Form submit
+// Search form submit
 createListener({
   eventName: 'submit',
   elementId: 'search-form',

@@ -1,0 +1,47 @@
+.page-message {
+  width: 100%;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  background-color: $gray-600;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .close {
+      padding: 0.2rem;
+      position: absolute;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      
+      &__icon {
+        color: $gray-200;
+      }
+    }
+
+    .message {
+      &__text {
+        color: $gray-200;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  &--error {
+    background-color: $red-500;
+  }
+
+  &--success {
+    background-color: $gray-600;
+  }
+}
