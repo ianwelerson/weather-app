@@ -3,8 +3,10 @@
   padding: 1rem;
   position: fixed;
   top: 0;
-  z-index: 20;
+  z-index: 40;
   background-color: $gray-600;
+  display: none;
+  transition: $transition-leave;
 
   &__content {
     display: flex;
@@ -35,6 +37,11 @@
         font-size: 1.2rem;
       }
     }
+  }
+
+  &--visible {
+    display: initial;
+    transition: $transition-enter;
   }
 
   &--error {

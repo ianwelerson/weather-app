@@ -10,8 +10,7 @@ import searchLocation from '@/assets/js/modules/searchLocation'
 import sideMenu from '@/assets/js/modules/sideMenu'
 
 // TODO: Skeleton loading
-// TODO: Create message helper (show a message on top of the page)
-// TODO: Create invalid location handle using the message helper
+// TODO: Error when try search locations and API fails
 
 // ------- Location load ------- 
 initialLocation()

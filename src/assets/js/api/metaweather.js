@@ -1,3 +1,6 @@
+// Modules
+import pageMessage from '@/assets/js/modules/pageMessage'
+
 // TODO: Change weather source
 const cors = 'https://cors-anywhere.herokuapp.com' // Cors Anywhere
 const api = 'https://www.metaweather.com/api' // Meta Weather API
@@ -13,6 +16,8 @@ function getPlacesByQuery (query) {
     .then(response => response.json())
     .then(response => {
       return response
+    }).catch((error) => {
+      showErrorFeedback()
     })
 }
 
@@ -26,6 +31,8 @@ function getPlaceByWoeid (woeid) {
     .then(response => response.json())
     .then(response => {
       return response
+    }).catch((error) => {
+      showErrorFeedback()
     })
 }
 
@@ -40,7 +47,16 @@ function getPlaceByCoord ({ lat, long}) {
     .then(response => response.json())
     .then(response => {
       return response
+    }).catch((error) => {
+      showErrorFeedback()
     })
+}
+
+function showErrorFeedback () {
+  pageMessage.show({
+    type: 'error',
+    message: 'There\'s something wrong, try again'
+  })
 }
 
 export {
