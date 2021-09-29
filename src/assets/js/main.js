@@ -1,3 +1,5 @@
+// This is the entry point of the application
+
 // ------- Load CSS ------- 
 import '@/assets/scss/main.scss'
 
@@ -9,8 +11,11 @@ import changeUnit from '@/assets/js/modules/changeUnit'
 import searchLocation from '@/assets/js/modules/searchLocation'
 import sideMenu from '@/assets/js/modules/sideMenu'
 
-// TODO: Skeleton loading
-// TODO: Error when try search locations and API fails
+// TODO: (All) Skeleton loading
+// TODO: (Search list) Error when try search locations and API fails or have items to show
+// TODO: (All) E2E Tests
+// TODO: (Check possibility) Change weather source to prevent CORS problem
+// TODO: (Check possibility) Deploy on Netlify
 
 // ------- Location load ------- 
 initialLocation()

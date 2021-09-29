@@ -1,0 +1,31 @@
+.skeleton-load {
+  height: 100%;
+  width: 100%;
+  margin-top: 1rem;
+  display: inline-block;
+  animation: color-pulse 1s linear infinite alternate both;
+
+  &--loaded {
+    display: none;
+  }
+
+  @keyframes color-pulse {
+    0% {
+      background: $gray-200;
+    }
+    100% {
+      background: $gray-300;
+    }
+  }
+}
+
+.hide-element-on-loading {
+  display: none;
+}
+
+// Add this
+// <span
+// data-loading="skeleton"
+// class="skeleton-load"
+// style="width: 6rem; height: 4rem"
+// ></span>

@@ -1,7 +1,6 @@
 // Modules
 import pageMessage from '@/assets/js/modules/pageMessage'
 
-// TODO: Change weather source
 const cors = 'https://cors-anywhere.herokuapp.com' // Cors Anywhere
 const api = 'https://www.metaweather.com/api' // Meta Weather API
 const fullApi = `${cors}/${api}` // Full API route
