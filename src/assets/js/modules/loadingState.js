@@ -9,25 +9,46 @@ let isLoading = true
 function toggleLoading () {
   const loadingElement = document.querySelectorAll('[data-loading=skeleton]')
   const dataElements = document.querySelectorAll('[data-loading=data]')
-  // TODO: Create a generic method for this toggles
-  if (isLoading) {
-    dataElements.forEach(element => {
-      element.classList.add(DATA_LOADING_CLASS)
-    })
 
-    loadingElement.forEach(element => {
-      element.classList.remove(NOT_LOADING_CLASS)
+  if (isLoading) {
+    changeClass({
+      elements: dataElements,
+      cssClass: DATA_LOADING_CLASS,
+      remove: false
+    })
+  
+    changeClass({
+      elements: loadingElement,
+      cssClass: NOT_LOADING_CLASS,
+      remove: true
+    })
+    return
+  }
+
+  changeClass({
+    elements: dataElements,
+    cssClass: DATA_LOADING_CLASS,
+    remove: true
+  })
+
+  changeClass({
+    elements: loadingElement,
+    cssClass: NOT_LOADING_CLASS,
+    remove: false
+  })
+}
+
+function changeClass({ elements, remove, cssClass  }) {
+  if (remove) {
+    elements.forEach(element => {
+      element.classList.remove(cssClass)
     })
 
     return
   }
 
-  loadingElement.forEach(element => {
-    element.classList.add(NOT_LOADING_CLASS)
-  })
-
-  dataElements.forEach(element => {
-    element.classList.remove(DATA_LOADING_CLASS)
+  elements.forEach(element => {
+    element.classList.add(cssClass)
   })
 }
 
