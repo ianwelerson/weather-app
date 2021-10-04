@@ -125,7 +125,7 @@
                   src=""
                   alt=""
                   class="state-image__img"
-                  data-loading="data"
+                  data-loading="content"
                 >
                 <span
                   data-loading="skeleton"
@@ -139,12 +139,12 @@
                 <span
                   class="state-temperature__number"
                   id="main-forecast-temperature"
-                  data-loading="data"
+                  data-loading="content"
                 ></span>
                 <span
                   class="state-temperature__unit"
                   id="main-forecast-unit"
-                  data-loading="data"
+                  data-loading="content"
                 ></span>
                 <span
                   data-loading="skeleton"
@@ -157,7 +157,7 @@
               <p
                 class="state-name__content"
                 id="main-forecast-name"
-                data-loading="data"
+                data-loading="content"
               ></p>
               <span
                 data-loading="skeleton"
@@ -172,7 +172,7 @@
                   <span
                     class="date__full"
                     id="main-forecast-date"
-                    data-loading="data"
+                    data-loading="content"
                   ></span>
                   <span
                     data-loading="skeleton"
@@ -187,7 +187,7 @@
                   <span
                     class="location__name"
                     id="main-forecast-location"
-                    data-loading="data"
+                    data-loading="content"
                   ></span>
                   <span
                     data-loading="skeleton"
@@ -227,12 +227,12 @@
             <div
               class="next-days__content"
               id="next-days-forecast-block"
+              data-loading="content"
             >
               <template id="next-day-forecast-template">
                 <div
                   class="day-forecast"
                   data-testid="one-day-forecast"
-                  data-loading="data"
                 >
                   <div class="day-forecast__inner">
                     <div class="day-forecast__content">
@@ -250,30 +250,25 @@
                   </div>
                 </div>
               </template>
+            </div>
+            <div
+              data-loading="skeleton"
+              class="skeleton-block skeleton-block--daily-forecast"
+            >
               <span
-                data-loading="skeleton"
                 class="skeleton-load"
-                style="width: 10rem; height: 10rem; padding: 0.5rem"
               ></span>
               <span
-                data-loading="skeleton"
                 class="skeleton-load"
-                style="width: 10rem; height: 10rem; padding: 0.5rem"
               ></span>
               <span
-                data-loading="skeleton"
                 class="skeleton-load"
-                style="width: 10rem; height: 10rem; padding: 0.5rem"
               ></span>
               <span
-                data-loading="skeleton"
                 class="skeleton-load"
-                style="width: 10rem; height: 10rem; padding: 0.5rem"
               ></span>
               <span
-                data-loading="skeleton"
                 class="skeleton-load"
-                style="width: 10rem; height: 10rem; padding: 0.5rem"
               ></span>
             </div>
           </div>
@@ -294,7 +289,7 @@
                         <span
                           class="value__number"
                           id="hightlights-wind-speed"
-                          data-loading="data"
+                          data-loading="content"
                         ></span>
                         <span
                           data-loading="skeleton"
@@ -331,7 +326,7 @@
                         <span
                           class="value__number"
                           id="hightlight-humidity-number"
-                          data-loading="data"
+                          data-loading="content"
                         ></span>
                         <span
                           data-loading="skeleton"
@@ -372,7 +367,7 @@
                         <span
                           class="value__number"
                           id="hightlight-visibility-number"
-                          data-loading="data"
+                          data-loading="content"
                         ></span>
                         <span
                           data-loading="skeleton"
@@ -394,7 +389,7 @@
                         <span
                           class="value__number"
                           id="hightlight-air-pressure-number"
-                          data-loading="data"
+                          data-loading="content"
                         ></span>
                         <span
                           data-loading="skeleton"

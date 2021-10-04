@@ -8,7 +8,7 @@ let isLoading = true
 // Toggle loading elements
 function toggleLoading () {
   const loadingElement = document.querySelectorAll('[data-loading=skeleton]')
-  const dataElements = document.querySelectorAll('[data-loading=data]')
+  const dataElements = document.querySelectorAll('[data-loading=content]')
 
   if (isLoading) {
     changeClass({

@@ -9,21 +9,68 @@
     display: none;
   }
 
+  // Pulse animation
   @keyframes color-pulse {
     0% {
       background: $gray-200;
+      opacity: 1;
     }
     100% {
       background: $gray-300;
+      opacity: 0.8;
     }
   }
 }
 
-.hide-element-on-loading {
-  display: none;
+// Blocks of skeleton elements
+.skeleton-block {
+  // Daily forecast block
+  &--daily-forecast {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -1rem;
+
+    @include screen(desktop-up) {
+      margin: 0;
+    }
+
+    .skeleton-load {
+      width: 48%;
+      height: 11rem;
+      margin-bottom: 0.2rem;
+      
+      @include screen(tablet-up) {
+        margin-bottom: 0.8rem;
+      }
+
+      @include screen(desktop-up) {
+        width: 18%;
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
-// Add this
+.skeleton-block,
+.skeleton-load {
+  &--loaded {
+    display: none;
+  }
+}
+
+.hide-element-on-loading {
+  display: none !important;
+}
+
+/**
+ * Loader use
+ * To show the skeleton loader you must to use the span below
+ * And add the data-loading="content" to the content that must be hidden during the load time
+ *
+ * You can create a load block for specific situations, like the Daily Forecast
+ **/
+
 // <span
 // data-loading="skeleton"
 // class="skeleton-load"
