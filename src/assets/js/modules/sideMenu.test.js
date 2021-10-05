@@ -30,6 +30,19 @@ describe('sideMenu.js', () => {
     expect(element.classList.contains('home__menu--closed')).toBeTruthy()
   })
 
+  test('should render a message if received array is empty', () => {
+    sideMenu.open()
+    sideMenu.listLocations([])
+
+    const wrapper = document.getElementById('location-list')
+    const elements = wrapper.querySelectorAll('li')
+    const firstElementParagraph = elements[0].querySelector('p')
+
+    // One element
+    expect(elements.length).toBe(1)
+    expect(firstElementParagraph.innerHTML).toBe('We can\'t find any location for this terms')
+  })
+
   test('should render a list of locations and clear items before render again', () => {
     sideMenu.open()
     sideMenu.listLocations(query)

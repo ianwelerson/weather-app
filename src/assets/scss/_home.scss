@@ -521,6 +521,13 @@
           margin-right: 2rem;
           list-style: none;
 
+          &__not-found {
+            .not-found-message {
+              margin: 0;
+              color: $gray-200;
+            }
+          }
+
           &__item {
             margin-bottom: 0.75rem;
 

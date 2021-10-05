@@ -1,6 +1,7 @@
 import { loadLocation } from '@/assets/js/modules/loadLocation'
 
 const locationListId = 'location-list'
+const notFoundMessageId = 'location-not-found'
 
 const sideMenu = {
   open() {
@@ -17,6 +18,12 @@ const sideMenu = {
 
     // Clear list
     sideMenu.clearLocationList()
+
+    if (!locations.length) {
+      showNotFoundMessage()
+
+      return
+    }
 
     locations.forEach(location => {
       const templateClone = locationTemplate.content.cloneNode(true)
@@ -59,6 +66,13 @@ function removeLocationListener (element) {
   }
 
   document.getElementById(actionElement.id).removeEventListener('click', loadLocationEvent)
+}
+
+function showNotFoundMessage () {
+  const notFoundMessage = document.getElementById(notFoundMessageId).content.cloneNode(true)
+  const locationList = document.getElementById(locationListId)
+
+  locationList.appendChild(notFoundMessage)
 }
 
 export default sideMenu
