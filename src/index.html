@@ -148,6 +148,7 @@
             <div
               class="state-image"
               id="main-forecast-icon"
+              data-testid="today-forecast-icon-bg"
             >
               <div class="state-image__content">
                 <img
@@ -155,6 +156,7 @@
                   alt=""
                   class="state-image__img"
                   data-loading="content"
+                  data-testid="today-forecast-icon"
                 >
                 <span
                   data-loading="skeleton"
@@ -169,11 +171,13 @@
                   class="state-temperature__number"
                   id="main-forecast-temperature"
                   data-loading="content"
+                  data-testid="today-forecast-temperature"
                 ></span>
                 <span
                   class="state-temperature__unit"
                   id="main-forecast-unit"
                   data-loading="content"
+                  data-testid="today-forecast-temperature-unit"
                 ></span>
                 <span
                   data-loading="skeleton"
@@ -187,6 +191,7 @@
                 class="state-name__content"
                 id="main-forecast-name"
                 data-loading="content"
+                data-testid="today-forecast-name"
               ></p>
               <span
                 data-loading="skeleton"
@@ -202,6 +207,7 @@
                     class="date__full"
                     id="main-forecast-date"
                     data-loading="content"
+                    data-testid="today-forecast-date"
                   ></span>
                   <span
                     data-loading="skeleton"
@@ -217,6 +223,7 @@
                     class="location__name"
                     id="main-forecast-location"
                     data-loading="content"
+                    data-testid="today-forecast-location"
                   ></span>
                   <span
                     data-loading="skeleton"
@@ -270,14 +277,28 @@
                   <div class="day-forecast__inner">
                     <div class="day-forecast__content">
                       <div class="title">
-                        <p class="title__text"></p>
+                        <p
+                          class="title__text"
+                          data-testid="next-day-title"
+                        ></p>
                       </div>
                       <div class="icon">
-                        <img src="" alt="" class="icon__image">
+                        <img
+                          src=""
+                          alt=""
+                          class="icon__image"
+                          data-testid="next-day-icon"
+                        >
                       </div>
                       <p class="temperature">
-                        <span class="temperature__max"></span>
-                        <span class="temperature__min"></span>
+                        <span
+                          class="temperature__max"
+                          data-testid="next-day-max">
+                        </span>
+                        <span
+                          class="temperature__min"
+                          data-testid="next-day-min">
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -324,6 +345,7 @@
                           class="value__number"
                           id="hightlights-wind-speed"
                           data-loading="content"
+                          data-testid="today-hightlight-wind-speed-number"
                         ></span>
                         <span
                           data-loading="skeleton"
@@ -338,6 +360,7 @@
                             class="wind-direction__arrow"
                             id="hightlights-wind-direction-arrow"
                             style="transform: rotate(0deg)"
+                            data-testid="today-hightlight-wind-direction-arrow"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path fill="currentColor" d="M12 7.27l4.28 10.43-3.47-1.53-.81-.36-.81.36-3.47 1.53L12 7.27M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z"/></svg>
                           </div>
@@ -361,6 +384,7 @@
                           class="value__number"
                           id="hightlight-humidity-number"
                           data-loading="content"
+                          data-testid="today-hightlight-humidity-number"
                         ></span>
                         <span
                           data-loading="skeleton"
@@ -381,6 +405,7 @@
                               class="bar"
                               id="hightlight-humidity-percent"
                               style="width: 0%"
+                              data-testid="today-hightlight-humidity-bar"
                             ></div>
                           </div>
                           <div class="fill-bar__bottom">
@@ -402,6 +427,7 @@
                           class="value__number"
                           id="hightlight-visibility-number"
                           data-loading="content"
+                          data-testid="today-hightlight-visibility-number"
                         ></span>
                         <span
                           data-loading="skeleton"
@@ -424,6 +450,7 @@
                           class="value__number"
                           id="hightlight-air-pressure-number"
                           data-loading="content"
+                          data-testid="today-hightlight-air-pressure-number"
                         ></span>
                         <span
                           data-loading="skeleton"

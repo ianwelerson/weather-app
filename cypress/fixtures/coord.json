@@ -1,0 +1,16 @@
+[
+  {
+    "distance": 20828,
+    "title": "Calgary",
+    "location_type": "City",
+    "woeid": 8775,
+    "latt_long": "51.013371,-114.070877"
+    },
+    {
+      "distance": 287215,
+      "title": "Edmonton",
+      "location_type": "City",
+      "woeid": 8676,
+      "latt_long": "53.555882,-113.492577"
+    }
+]

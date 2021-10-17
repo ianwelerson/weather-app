@@ -1,0 +1,159 @@
+{
+  "title": "Calgary",
+  "location_type": "City",
+  "woeid": 8775,
+  "latt_long": "51.013371,-114.070877",
+  "timezone": "America/Edmonton",
+  "time": "2021-09-10T07:15:47.425645-06:00",
+  "sun_rise": "2021-09-10T07:04:21.871323-06:00",
+  "sun_set": "2021-09-10T20:02:59.302729-06:00",
+  "timezone_name": "LMT",
+  "consolidated_weather": [
+    {
+      "id": 4908776458027008,
+      "weather_state_name": "Heavy Cloud",
+      "weather_state_abbr": "hc",
+      "wind_direction_compass": "ESE",
+      "created": "2021-09-10T11:06:13.366755Z",
+      "applicable_date": "2021-09-10",
+      "min_temp": 8.645,
+      "max_temp": 20.225,
+      "the_temp": 18.465,
+      "wind_speed": 4.184098540666508,
+      "wind_direction": 101.86725683984457,
+      "air_pressure": 1015,
+      "humidity": 60,
+      "visibility": 13.859684442853734,
+      "predictability": 71
+    },
+    {
+      "id": 6085910912303104,
+      "weather_state_name": "Heavy Rain",
+      "weather_state_abbr": "hr",
+      "wind_direction_compass": "ESE",
+      "created": "2021-09-11T11:06:13.366755Z",
+      "applicable_date": "2021-09-11",
+      "min_temp": 9.629999999999999,
+      "max_temp": 14.955,
+      "the_temp": 12.425,
+      "wind_speed": 4.598658386322543,
+      "wind_direction": 108.73113949644906,
+      "air_pressure": 1015,
+      "humidity": 89,
+      "visibility": 7.299558080808081,
+      "predictability": 77
+    },
+    {
+      "id": 4586422553018368,
+      "weather_state_name": "Heavy Rain",
+      "weather_state_abbr": "hr",
+      "wind_direction_compass": "NNE",
+      "created": "2021-09-10T11:06:19.791756Z",
+      "applicable_date": "2021-09-12",
+      "min_temp": 8.07,
+      "max_temp": 14.72,
+      "the_temp": 15.525,
+      "wind_speed": 5.041876456902357,
+      "wind_direction": 28.211210479092962,
+      "air_pressure": 1011.5,
+      "humidity": 75,
+      "visibility": 12.437987155014714,
+      "predictability": 77
+    },
+    {
+      "id": 5795851923357696,
+      "weather_state_name": "Showers",
+      "weather_state_abbr": "s",
+      "wind_direction_compass": "W",
+      "created": "2021-09-10T11:06:22.374689Z",
+      "applicable_date": "2021-09-13",
+      "min_temp": 5.45,
+      "max_temp": 16.71,
+      "the_temp": 14.995000000000001,
+      "wind_speed": 4.255333020795885,
+      "wind_direction": 267.274760584042,
+      "air_pressure": 1015.5,
+      "humidity": 58,
+      "visibility": 13.18456464248787,
+      "predictability": 73
+    },
+    {
+      "id": 6041302157230080,
+      "weather_state_name": "Light Cloud",
+      "weather_state_abbr": "lc",
+      "wind_direction_compass": "SSW",
+      "created": "2021-09-10T11:06:26.753537Z",
+      "applicable_date": "2021-09-14",
+      "min_temp": 4.335,
+      "max_temp": 19.425,
+      "the_temp": 17.285,
+      "wind_speed": 3.3852978791749515,
+      "wind_direction": 203.5719057455064,
+      "air_pressure": 1011.5,
+      "humidity": 50,
+      "visibility": 14.04702785731329,
+      "predictability": 70
+    },
+    {
+      "id": 6733808893165568,
+      "weather_state_name": "Heavy Rain",
+      "weather_state_abbr": "hr",
+      "wind_direction_compass": "NW",
+      "created": "2021-09-10T11:06:28.371387Z",
+      "applicable_date": "2021-09-15",
+      "min_temp": 6.61,
+      "max_temp": 16.55,
+      "the_temp": 20.55,
+      "wind_speed": 7.447977014236857,
+      "wind_direction": 324.5,
+      "air_pressure": 999,
+      "humidity": 53,
+      "visibility": 9.137263381849996,
+      "predictability": 77
+    }
+  ],
+  "parent": {
+    "title": "Canada",
+    "location_type": "Country",
+    "woeid": 23424775,
+    "latt_long": "56.954681,-98.308968"
+  },
+  "sources": [
+    {
+      "title": "BBC",
+      "slug": "bbc",
+      "url": "http://www.bbc.co.uk/weather/",
+      "crawl_rate": 360
+    },
+    {
+      "title": "Forecast.io",
+      "slug": "forecast-io",
+      "url": "http://forecast.io/",
+      "crawl_rate": 480
+    },
+    {
+      "title": "Met Office",
+      "slug": "met-office",
+      "url": "http://www.metoffice.gov.uk/",
+      "crawl_rate": 180
+    },
+    {
+      "title": "OpenWeatherMap",
+      "slug": "openweathermap",
+      "url": "http://openweathermap.org/",
+      "crawl_rate": 360
+    },
+    {
+      "title": "Weather Underground",
+      "slug": "wunderground",
+      "url": "https://www.wunderground.com/?apiref=fc30dc3cd224e19b",
+      "crawl_rate": 720
+    },
+    {
+      "title": "World Weather Online",
+      "slug": "world-weather-online",
+      "url": "http://www.worldweatheronline.com/",
+      "crawl_rate": 360
+    }
+  ]
+}

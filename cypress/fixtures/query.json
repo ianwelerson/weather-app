@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Calgary",
+    "location_type": "City",
+    "woeid": 8775,
+    "latt_long": "51.013371,-114.070877"
+  },
+  {
+    "title": "Calvi",
+    "location_type": "City",
+    "woeid": 582723,
+    "latt_long": "42.5578,8.75379"
+  }
+]
