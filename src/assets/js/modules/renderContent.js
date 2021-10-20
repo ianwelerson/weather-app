@@ -109,10 +109,7 @@ function renderTodayHightlights (today) {
 
 // Local helpers
 function cardTitle (date) {
-  const tomorrow = new Date()
-  tomorrow.setDate(tomorrow.getDate() + 1)
-
-  if (date === tomorrow.toISOString().split('T')[0]) {
+  if (new Date(date).getDate() === new Date().getDate()) {
     return 'Tomorrow'
   }
 

@@ -7,7 +7,7 @@ export default (date) => {
 
   // YYY-MM-DD
   if (!!(/(20[0-9]{2})-(0[1-9]|1[012])-([012][0-9]|3[01])/gm.exec(date))) {
-    dateValue = `${date}T${new Date().toISOString().split('T')[1]}`
+    dateValue = `${date}T12:00:00.000Z`
   }
 
   // ISO

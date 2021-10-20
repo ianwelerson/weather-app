@@ -71,6 +71,7 @@ describe('renderContent.js', () => {
         expect(secondDayElement.querySelector('.icon__image').alt).toBe(secondDayData.weather_state_name)
 
         // Check if tomorrow title is valid
+        // TODO: Adjust the mock with timezone values
         expect(forecastsBlock[0].querySelector('.title__text').innerText).toBe('Tomorrow')
       })
     })
