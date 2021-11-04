@@ -34,12 +34,12 @@ describe('Accessing the forecast', () => {
     it('Today\'s hightlights', () => {
       // Wind Speed
       cy.get('[data-testid=today-hightlight-wind-speed-number]').should('have.text', '4.18')
-      // TODO: Wind Arrow
-      // cy.get('[data-testid=today-hightlight-wind-direction]').should('have.css', 'transform', 'rotate(101.86725683984457deg)')
+      // Wind Arrow
+      cy.get('[data-testid=today-hightlight-wind-direction-arrow]').should('have.attr', 'style').should('contain', 'transform: rotate(101.867deg)')
       // Humidity
       cy.get('[data-testid=today-hightlight-humidity-number]').should('have.text', '60')
-      // TODO: Humidity Bar
-      // cy.get('[data-testid=today-hightlight-humidity-bar]').should('have.css', 'width', '60%')
+      // Humidity Bar
+      cy.get('[data-testid=today-hightlight-humidity-bar]').should('have.attr', 'style').should('contain', 'width: 60%')
       // Visibility
       cy.get('[data-testid=today-hightlight-visibility-number]').should('have.text', '13.86')
       // Air Pressure
